@@ -1,0 +1,33 @@
+import java.util.*;
+
+public class arraySort {
+    public static void main(String[] args) {
+
+        ArrayList<Integer> values = new ArrayList<Integer>();
+        for (int i = 0; i < 10000; i++) {
+            values.add(-1 * i);
+        }
+        System.out.println(values);
+
+        long startSort = new Date().getTime();
+        Collections.sort(values);
+        long endSort = new Date().getTime();
+        System.out.println(values);
+        System.out.println("Delta:" + (endSort - startSort) + " ms");
+
+        long startBubbleSort = new Date().getTime();
+        int temp;
+        for (int out = values.size() - 1; out >= 1; out--) {
+            for (int i = 0; i < out; i++) {
+                if (values.get(i) > values.get(i + 1)) {
+                    temp = values.get(i);
+                    values.set(i, values.get(i + 1));
+                    values.set(i + 1, temp);
+                }
+            }
+        }
+        long endBubbleSort = new Date().getTime();
+        System.out.println(values);
+        System.out.println("Delta:" + (endBubbleSort - startBubbleSort) + " ms");
+    }
+}
