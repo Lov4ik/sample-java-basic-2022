@@ -1,0 +1,35 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Client {
+
+    private String firstName;
+    private int age;
+    public List<Account> accounts = new ArrayList<>();
+
+
+    public Client(String firstName, int age) {
+        this.firstName = firstName;
+        this.age = age;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void addAccount(Account ac) {
+        accounts.add(ac);
+    }
+
+    public void printResult() {
+        for (Account num : accounts) {
+            System.out.println(num);
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "firstName='" + firstName + '\'' +
+                ", age=" + age;
+    }
+}
