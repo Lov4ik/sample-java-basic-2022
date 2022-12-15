@@ -1,0 +1,35 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Bank {
+    private List<Client> clients = new ArrayList<>();
+
+
+    public void addNewClient(Client client) {
+        clients.add(client);
+    }
+
+    public List getAccounts(Client client) {
+        for (Client existingСlient : clients) {
+            if (existingСlient.getFirstName().equals(client.getFirstName())) {
+                return existingСlient.accounts;
+            }
+        }
+        throw new NullPointerException("This person is not yet a bank customer");
+    }
+
+    public Client findClient(Account account){
+        for (Client existingСlient : clients) {
+            for (Account account1 : existingСlient.accounts) {
+                if (account1.getId() == account.getId()){
+                    return existingСlient;
+                }
+            }
+        }
+        throw new NullPointerException("This account does not exist");
+    }
+
+    public void printClient(Client client){
+        System.out.println(client);
+    }
+}
