@@ -1,0 +1,20 @@
+public class Account {
+    private int id;
+    private double balance;
+
+    protected Account(int id, double initBalance) {
+        this.id = id;
+        this.balance = initBalance;
+    }
+
+    public double getId() {
+        return id;
+    }
+
+
+    @Override
+    public String toString() {
+        return "id='" + id + '\'' +
+                ", balance=" + balance;
+    }
+}
